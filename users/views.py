@@ -8,32 +8,34 @@ from django.http import HttpResponseForbidden, HttpResponse
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, TemplateView
-
+from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import redirect
 from .forms import RegisterUserForm, LoginForm
+from django.contrib import messages
 
-
-class RegisterUserView(CreateView):
+class RegisterUserView(SuccessMessageMixin, CreateView):
     form_class = RegisterUserForm
-    template_name = "register.html"
-
+    template_name = "users/register.html"
+    #success_url = reverse_lazy('login')
+    success_message = "%(name)s was successfully"
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated():
             return HttpResponseForbidden()
-
         return super(RegisterUserView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         user = form.save(commit=False)
         user.set_password(form.cleaned_data['password'])
         user.save()
-        return HttpResponse('Registration has been completed')
+        return redirect('/')
 
 
-class LoginUserView(LoginView):
+class LoginUserView(SuccessMessageMixin, LoginView):
     form_class = LoginForm
-    template_name = "login.html"
+    template_name = "users/login.html"
     redirect_authenticated_user = True
     success_url = reverse_lazy('dashboard')
+    success_message = "login successfully"
 
 
 @method_decorator(login_required, name='dispatch')
