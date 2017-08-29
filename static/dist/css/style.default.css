@@ -428,10 +428,14 @@ nav.side-navbar ul a:hover {
   background: #796AEE;
   border-left: 4px solid #3b25e6;
   color: #fff;
+  box-shadow: 2px 0px 20px #685fa9;
 }
 
 nav.side-navbar ul li.active a {
-  background: #EEF5F9;
+  /* background: #EEF5F9; */
+  background: #796aee;
+  box-shadow: 2px 3px 10px #211a58;
+  color: #fff;
 }
 
 nav.side-navbar ul li.active a:hover {

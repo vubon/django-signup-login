@@ -9,15 +9,15 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, TemplateView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from .forms import RegisterUserForm, LoginForm
-from django.contrib import messages
+
 
 class RegisterUserView(SuccessMessageMixin, CreateView):
     form_class = RegisterUserForm
     template_name = "users/register.html"
-    #success_url = reverse_lazy('login')
-    success_message = "%(name)s was successfully"
+    success_url = '/users/signup'
+    success_message = "Account has been created successfully"
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated():
             return HttpResponseForbidden()
@@ -27,7 +27,9 @@ class RegisterUserView(SuccessMessageMixin, CreateView):
         user = form.save(commit=False)
         user.set_password(form.cleaned_data['password'])
         user.save()
-        return redirect('/')
+
+        return super(RegisterUserView, self).form_valid(form)
+
 
 
 class LoginUserView(SuccessMessageMixin, LoginView):
@@ -35,7 +37,7 @@ class LoginUserView(SuccessMessageMixin, LoginView):
     template_name = "users/login.html"
     redirect_authenticated_user = True
     success_url = reverse_lazy('dashboard')
-    success_message = "login successfully"
+    success_message = "login success"
 
 
 @method_decorator(login_required, name='dispatch')
@@ -44,3 +46,5 @@ class DashboardView(TemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         return super(DashboardView, self).dispatch(request, *args, **kwargs)
+
+

@@ -31,11 +31,7 @@
   </head>
 
   <body>
-       {% if messages %}
-            {% for message in messages %}
-              toastr[{{ message.tags }}]({{ message }})
-            {% endfor %}
-      {% endif %}
+
     {% block content %}
 
     {% endblock %}
@@ -45,6 +41,7 @@
     <!-- Javascript files-->
     {% load staticfiles %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="{% static 'dist/js/tether.min.js' %}"></script>
     <script src="{% static 'dist/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'dist/js/jquery.cookie.js' %}"> </script>
@@ -52,6 +49,14 @@
     <script src="{% static 'dist/js/Chart.min.js' %}"></script>
     <script src="{% static 'dist/js/charts-home.js' %}"></script>
     <script src="{% static 'dist/js/front.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                toastr["{{ message.tags }}"]("{{ message }}");
+            </script>
+        {% endfor %}
+    {% endif %}
   </body>
 </html>

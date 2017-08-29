@@ -8,6 +8,6 @@ def terms(request):
 
 @login_required(login_url='/users/login/')
 def home(request):
-    #if request.user.is_staff:
-        #return redirect('/admin-panel/')
+    if request.user.is_staff:
+        return redirect('/users/adminpanel/')
     return render(request, 'index.html', {})

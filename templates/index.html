@@ -3,7 +3,7 @@
     Admin Page
 {% endblock %}
 {% block content %}
-
+ {% load staticfiles %}
     <div class="page home-page">
       <!-- Main Navbar-->
       <header class="header">
@@ -19,9 +19,11 @@
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
               <div class="navbar-header">
-                <!-- Navbar Brand --><a href="index.html" class="navbar-brand">
-                  <div class="brand-text brand-big hidden-lg-down"><span>Bootstrap </span><strong>Dashboard</strong></div>
-                  <div class="brand-text brand-small"><strong>BD</strong></div></a>
+                <!-- Navbar Brand -->
+                  <a href="./" class="navbar-brand">
+                    <div class="brand-text brand-big hidden-lg-down"><span>Call Center </span><strong> Dashboard</strong></div>
+                    <div class="brand-text brand-small"><strong>BD</strong></div>
+                  </a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
               </div>
               <!-- Navbar Menu -->
@@ -58,17 +60,17 @@
                 <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange">10</span></a>
                   <ul aria-labelledby="notifications" class="dropdown-menu">
                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-profile"> <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-profile"> <img src="{% static 'dist/img/avatar-1.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="msg-body">
                           <h3 class="h5">Jason Doe</h3><span>Sent You Message</span>
                         </div></a></li>
                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-profile"> <img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-profile"> <img src="{% static 'dist/img/avatar-2.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="msg-body">
                           <h3 class="h5">Frank Williams</h3><span>Sent You Message</span>
                         </div></a></li>
                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-profile"> <img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-profile"> <img src="{% static 'dist/img/avatar-3.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="msg-body">
                           <h3 class="h5">Ashley Wood</h3><span>Sent You Message</span>
                         </div></a></li>
@@ -87,7 +89,10 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar">
+
+              <img src="{% static 'dist/img/avatar-1.jpg' %}" alt="..." class="img-fluid rounded-circle">
+            </div>
             <div class="title">
               <h1 class="h4">Mark Stephen</h1>
               <p>Web Designer</p>
@@ -226,7 +231,7 @@
                 <div class="row bg-white has-shadow">
                   <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                     <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="img/project-1.jpg" alt="..." class="img-fluid"></div>
+                      <div class="image has-shadow"><img src="{% static 'dist/img/project-1.jpg' %}" alt="..." class="img-fluid"></div>
                       <div class="text">
                         <h3 class="h4">Project Title</h3><small>Lorem Ipsum Dolor</small>
                       </div>
@@ -249,7 +254,7 @@
                 <div class="row bg-white has-shadow">
                   <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                     <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="img/project-2.jpg" alt="..." class="img-fluid"></div>
+                      <div class="image has-shadow"><img src="{% static 'dist/img/project-2.jpg'  %}" alt="..." class="img-fluid"></div>
                       <div class="text">
                         <h3 class="h4">Project Title</h3><small>Lorem Ipsum Dolor</small>
                       </div>
@@ -272,7 +277,7 @@
                 <div class="row bg-white has-shadow">
                   <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                     <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="img/project-3.jpg" alt="..." class="img-fluid"></div>
+                      <div class="image has-shadow"><img src="{% static 'dist/img/project-3.jpg'  %}" alt="..." class="img-fluid"></div>
                       <div class="text">
                         <h3 class="h4">Project Title</h3><small>Lorem Ipsum Dolor</small>
                       </div>
@@ -295,7 +300,7 @@
                 <div class="row bg-white has-shadow">
                   <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                     <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="img/project-4.jpg" alt="..." class="img-fluid"></div>
+                      <div class="image has-shadow"><img src="{%  static 'dist/img/project-4.jpg' %}" alt="..." class="img-fluid"></div>
                       <div class="text">
                         <h3 class="h4">Project Title</h3><small>Lorem Ipsum Dolor</small>
                       </div>
@@ -347,7 +352,7 @@
                       </div>
                     </div>
                     <div class="card-body text-center">
-                      <div class="client-avatar"><img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle">
+                      <div class="client-avatar"><img src="{% static 'dist/img/avatar-2.jpg' %}" alt="..." class="img-fluid rounded-circle">
                         <div class="status bg-green"></div>
                       </div>
                       <div class="client-title">
@@ -377,7 +382,7 @@
                       <h3>Total Overdue</h3><small>Lorem ipsum dolor sit amet.</small>
                       <div class="number text-center">$20,000</div>
                       <div class="chart">
-                        <canvas id="lineChart1">                               </canvas>
+                        <canvas id="lineChart1"></canvas>
                       </div>
                     </div>
                   </div>
@@ -404,27 +409,27 @@
                     </div>
                     <div class="card-body no-padding">
                       <div class="item d-flex align-items-center">
-                        <div class="image"><img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="image"><img src="{% static 'dist/img/avatar-1.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#">
                             <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Aria Smith.   </small></div>
                       </div>
                       <div class="item d-flex align-items-center">
-                        <div class="image"><img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="image"><img src="{% static 'dist/img/avatar-2.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#">
                             <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Frank Williams.   </small></div>
                       </div>
                       <div class="item d-flex align-items-center">
-                        <div class="image"><img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="image"><img src="{% static 'dist/img/avatar-3.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#">
                             <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Ashley Wood.   </small></div>
                       </div>
                       <div class="item d-flex align-items-center">
-                        <div class="image"><img src="img/avatar-4.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="image"><img src="{% static 'dist/img/avatar-4.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#">
                             <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Jason Doe.   </small></div>
                       </div>
                       <div class="item d-flex align-items-center">
-                        <div class="image"><img src="img/avatar-5.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="image"><img src="{% static 'dist/img/avatar-5.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="text"><a href="#">
                             <h3 class="h5">Lorem Ipsum Dolor</h3></a><small>Posted on 5th June 2017 by Sam Martinez.   </small></div>
                       </div>
@@ -565,7 +570,10 @@
                       <!-- Item-->
                       <div class="item">
                         <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="img/avatar-5.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                          <div class="feed-body d-flex justify-content-between">
+                              <a href="#" class="feed-profile">
+                                  <img src="{% static 'dist/img/avatar-5.jpg' %}" alt="person" class="img-fluid rounded-circle">
+                              </a>
                             <div class="content">
                               <h5>Aria Smith</h5><span>Posted a new blog </span>
                               <div class="full-date"><small>Today 5:60 pm - 12.06.2014</small></div>
@@ -577,7 +585,10 @@
                       <!-- Item-->
                       <div class="item"> 
                         <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="img/avatar-2.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                          <div class="feed-body d-flex justify-content-between">
+                              <a href="#" class="feed-profile">
+                                  <img src="{% static 'dist/img/avatar-2.jpg' %}" alt="person" class="img-fluid rounded-circle">
+                              </a>
                             <div class="content">
                               <h5>Frank Williams</h5><span>Posted a new blog </span>
                               <div class="full-date"><small>Today 5:60 pm - 12.06.2014</small></div>
@@ -590,7 +601,10 @@
                       <!-- Item-->
                       <div class="item clearfix">
                         <div class="feed d-flex justify-content-between">
-                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="img/avatar-3.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                          <div class="feed-body d-flex justify-content-between">
+                              <a href="#" class="feed-profile">
+                                  <img src="{% static 'dist/img/avatar-3.jpg' %}" alt="person" class="img-fluid rounded-circle">
+                              </a>
                             <div class="content">
                               <h5>Ashley Wood</h5><span>Posted a new blog </span>
                               <div class="full-date"><small>Today 5:60 pm - 12.06.2014</small></div>
